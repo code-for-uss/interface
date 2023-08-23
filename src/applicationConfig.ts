@@ -98,7 +98,7 @@ export const applicationConfig: ApplicationConfig = {
       metadataUrl:
         'https://raw.githubusercontent.com/spectrum-finance/token-logos/master/logos/ergo',
       spfFaucet: 'https://airdrop.spectrum.fi/v1/faucet/',
-      networkUrl: 'https://api.ergoplatform.com',
+      networkUrl: 'https://api-testnet.ergoplatform.com',
       explorerUrl: 'https://explorer.ergoplatform.com',
       analyticUrl: 'https://api.spectrum.fi/v1/',
       lowBalanceGuide:

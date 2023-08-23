@@ -15,7 +15,7 @@ import {
 } from 'rxjs';
 
 import { applicationConfig } from '../../../../applicationConfig';
-import { nativeNetworkPools, networkPools } from '../ammPools/utils';
+import { dexyPools, nativeNetworkPools, networkPools } from '../ammPools/utils';
 import { availableTokensData$ } from '../balance/common';
 import { networkContext$ } from '../networkContext/networkContext';
 import { tokenLocksGroupedByLpAsset$ } from './tokenLocks';
@@ -32,10 +32,18 @@ const getNetworkAmmPools = () =>
     retry(applicationConfig.requestRetryCount),
   );
 
+const getDexyPools = () =>
+  from(dexyPools().getAll({ limit: 500, offset: 0 })).pipe(
+    map(([pools]) => pools),
+    retry(applicationConfig.requestRetryCount),
+  );
+
 export const rawAmmPools$: Observable<BaseAmmPool[]> = networkContext$.pipe(
-  switchMap(() => zip([getNativeNetworkAmmPools(), getNetworkAmmPools()])),
-  map(([nativeNetworkPools, networkPools]) =>
-    nativeNetworkPools.concat(networkPools),
+  switchMap(() =>
+    zip([getNativeNetworkAmmPools(), getNetworkAmmPools(), getDexyPools()]),
+  ),
+  map(([nativeNetworkPools, networkPools, dexyPools]) =>
+    nativeNetworkPools.concat(networkPools, dexyPools),
   ),
   catchError(() => of(undefined)),
   filter(Boolean),

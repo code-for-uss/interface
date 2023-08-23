@@ -1,5 +1,6 @@
 import {
   AmmPool,
+  makeDexyPools,
   makeNativePools,
   makeTokenPools,
   Pools,
@@ -25,6 +26,18 @@ export const nativeNetworkPools = (() => {
   return (): Pools<AmmPool> => {
     if (!networkPools) {
       networkPools = makeNativePools(explorer);
+    }
+
+    return networkPools;
+  };
+})();
+
+export const dexyPools = (() => {
+  let networkPools: Pools<AmmPool>;
+
+  return (): Pools<AmmPool> => {
+    if (!networkPools) {
+      networkPools = makeDexyPools(explorer);
     }
 
     return networkPools;
