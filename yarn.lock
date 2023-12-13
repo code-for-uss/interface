@@ -1811,10 +1811,10 @@
     ts-node "^9"
     tslib "^2"
 
-"@ergolabs/ergo-dex-sdk@^1.9.67-beta.1":
-  version "1.9.67-beta.1"
-  resolved "https://registry.yarnpkg.com/@ergolabs/ergo-dex-sdk/-/ergo-dex-sdk-1.9.67-beta.1.tgz#8691e29dc1870af93a92140d36cb3469980c7e3a"
-  integrity sha512-NqCc35q5eFT24eTPH50MmESTZkyZ7DIz2kE7TZfwDnI54r4b7Tqa5kVqL26dA4nT/585+hgxQ6QdR/AbymWpOg==
+"@ergolabs/ergo-dex-sdk@^1.9.67-beta.3":
+  version "1.9.67-beta.3"
+  resolved "https://registry.yarnpkg.com/@ergolabs/ergo-dex-sdk/-/ergo-dex-sdk-1.9.67-beta.3.tgz#04764c9b00771cc67b5bc5220bb2005d35bcd548"
+  integrity sha512-Q0Xxz2Q+IsRG6PdOS2xvHhkL4YKRZiKwCY/cas8sUep6WSW7QfGZNJ6lM1/tLTFxBn9sAZlam30jnNNHKj8G0Q==
   dependencies:
     "@ergolabs/ergo-sdk" "^0.5.7"
     axios "^0.21.1"
